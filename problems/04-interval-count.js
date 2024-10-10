@@ -11,13 +11,22 @@ node with the examples below.
 
 Example
 
+
+***********************************************************************/
 intervalCount(function() {
     console.log('hi');
 }, 500, 3); // prints 'hi' at 500ms intervals a total of 3 times
-***********************************************************************/
 
 function intervalCount(cb, delay, amount) {
   // Your code here 
+  let count=0;
+  let func = setInterval(()=> { 
+    count++;
+    cb();
+    if(count===amount){
+      clearInterval(func);
+    }
+  },delay);
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/

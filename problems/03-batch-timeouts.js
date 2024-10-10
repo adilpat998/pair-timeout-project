@@ -17,6 +17,10 @@ you will need to test your new solution manually using node.
 
 Example:
 
+
+
+***********************************************************************/
+
 const sayHello = () => console.log('hi');
 const sayGoodbye = () => console.log('bye');
 const shout = () => console.log('WHAT?');
@@ -30,10 +34,16 @@ const timeoutObjs = batchTimeouts(tasks, delays);
 //  'WHAT?' after 900 ms
 
 console.log(timeoutObjs); // [ Timeout {...},  Timeout {...}, Timeout {...} ]
-***********************************************************************/
 
 function batchTimeouts(callbacks, delays) {
   // Your code here 
+  let arr=[];
+  for(let i=0;i<callbacks.length;i++){
+    const obj = setTimeout(callbacks[i] , delays[i]);
+    arr.push(obj);
+    console.log(arr);
+  }
+  return arr;
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
